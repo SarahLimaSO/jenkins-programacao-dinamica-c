@@ -7,8 +7,7 @@ int main(){
     char *str_input1;
     char *str_input2;
     char * msc;
-
-    str_input1 = 
     
+    str_input1 = novaString();
     return 0;
 }

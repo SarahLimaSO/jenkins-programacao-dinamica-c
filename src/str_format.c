@@ -2,7 +2,7 @@
 #include <string.h>
 #include "str_format.h"
 
-char *novaString(char *str){
+char *novaString(){
     char temp_buffer[100];
 
     printf("Digite a string: ");
@@ -11,7 +11,7 @@ char *novaString(char *str){
     // Remove o '\n' do fgets
     temp_buffer[strcspn(temp_buffer, "\n")] = '\0';
 
-    str = malloc(strlen(temp_buffer) + 1);
+    char *str = malloc(strlen(temp_buffer) + 1);
 
     if (str == NULL) {
         printf("Erro de alocacao!\n");
