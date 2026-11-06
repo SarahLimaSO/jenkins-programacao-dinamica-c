@@ -6,8 +6,9 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
 add_executable(prog-dinamica
-    src/main.c
+    src/str_format.c
     src/maior_subsequencia_comum.c
+    src/main.c
 )
 
 target_include_directories(prog-dinamica PRIVATE include)
