@@ -12,7 +12,7 @@ int main(){
     char *str_input2 = novaString();
     
     int ** mat = monta_matriz_prog_dinamica(str_input1, str_input2);
-    imprime_matriz(mat, tamanhoString(str_input1), tamanhoString(str_input2));
+    imprime_matriz(mat, tamanhoString(str_input1)+1, tamanhoString(str_input2)+1);
 
     char * msc;
     return 0;
