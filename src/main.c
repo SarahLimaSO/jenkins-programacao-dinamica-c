@@ -5,10 +5,11 @@
 
 int main(){
     char *str_input1 = novaString();
-    char *str_input2 = novaString();
-    char * msc;
-
     imprimeString(str_input1);
+    
+    char *str_input2 = novaString();
     imprimeString(str_input2);
+    
+    char * msc;
     return 0;
 }

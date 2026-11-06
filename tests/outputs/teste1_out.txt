@@ -1,2 +1,4 @@
+Digite a string: 
 ABBA
+Digite a string: 
 AMY
