@@ -1,17 +1,17 @@
 pipeline{
     agent any
     stages{
-        stage('Checkout'){l
+        stage('Checkout'){
             steps{
                 checkout scm
             }
         }
-        stage('Análise estática') {
+        stage('Análise estática'){
             steps {
                 sh 'cppcheck --enable=warning src/'
             }
         }
-        stage('Build') {
+        stage('Build'){
             steps {
                 sh 'cmake -S . -B build'
                 sh 'cmake --build build'
