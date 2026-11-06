@@ -44,7 +44,7 @@ int **monta_matriz_prog_dinamica(char *str1, char *str2){
     for(int i = 1; i < nLinhas; i++){
         for(int j = 1; j < nColunas; j++){
 
-            ehIgual = verifica_letras_iguais(str1[i-1], str2[j-1]);
+            ehIgual = verifica_letras_iguais(str2[i-1], str1[j-1]);
             valor_posicao_diagonal = mat[i-1][j-1];
             
             if(ehIgual) valor = valor_posicao_diagonal + 1;
