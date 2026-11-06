@@ -11,6 +11,8 @@ int main(){
     printf("Digite a segunda string: \n");
     char *str_input2 = novaString();
     
+    monta_matriz_prog_dinamica(str_input1, str_input2);
+
     char * msc;
     return 0;
 }

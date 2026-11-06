@@ -24,6 +24,16 @@ int max(int valor1, int valor2){
     else return valor2;
 }
 
+void imprime_matriz(int **mat, int nLinhas, int nColunas){
+ 
+    for(int i = 1; i < nLinhas; i++){
+        for(int j = 1; j < nColunas; j++){
+            printf("%d ", mat[i][j]);
+        }
+        printf("\n");
+    }
+}
+
 int **monta_matriz_prog_dinamica(char *str1, char *str2){
     int nLinhas = tamanhoString(str2) + 1;
     int nColunas = tamanhoString(str1) + 1;
