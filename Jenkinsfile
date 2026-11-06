@@ -17,9 +17,9 @@ pipeline{
                 sh 'cmake --build build'
             }
         }
-        stage('Run') {
+        stage('Test') {
             steps {
-                sh './build/prog-dinamica'
+                sh 'ctest --test-dir build --output-on-failure'
             }
         }
     }

@@ -12,3 +12,14 @@ add_executable(prog-dinamica
 )
 
 target_include_directories(prog-dinamica PRIVATE include)
+
+enable_testing()
+
+add_test(
+    NAME teste_1
+    COMMAND bash
+        ${CMAKE_SOURCE_DIR}/tests/executa_testes.sh
+        $<TARGET_FILE:prog-dinamica>
+        ${CMAKE_SOURCE_DIR}/tests/inputs/teste1_in.txt
+        ${CMAKE_SOURCE_DIR}/tests/outputs/teste1_out.txt
+)
