@@ -26,8 +26,8 @@ int max(int valor1, int valor2){
 
 void imprime_matriz(int **mat, int nLinhas, int nColunas){
  
-    for(int i = 1; i < nLinhas; i++){
-        for(int j = 1; j < nColunas; j++){
+    for(int i = 0; i < nLinhas; i++){
+        for(int j = 0; j < nColunas; j++){
             printf("%d ", mat[i][j]);
         }
         printf("\n");
