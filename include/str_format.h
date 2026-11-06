@@ -1,3 +1,3 @@
 void imprimeString(char *str);
-void tamanhoString(char *str);
+int tamanhoString(char *str);
 char *novaString();

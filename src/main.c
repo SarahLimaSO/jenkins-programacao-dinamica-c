@@ -5,15 +5,11 @@
 
 int main(){
 
-    printf("Digite a string: \n");
-
+    printf("Digite a primeira string: \n");
     char *str_input1 = novaString();
-    imprimeString(str_input1);
 
-    printf("Digite a string: \n");
-    
+    printf("Digite a segunda string: \n");
     char *str_input2 = novaString();
-    imprimeString(str_input2);
     
     char * msc;
     return 0;

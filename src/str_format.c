@@ -25,6 +25,6 @@ void imprimeString(char *str){
     printf("%s\n", str);
 }
 
-void tamanhoString(char *str){
-    printf("%zu\n", strlen(str));
+int tamanhoString(char *str){
+    return strlen(str);
 }
