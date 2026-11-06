@@ -9,5 +9,9 @@ int main(){
     char * msc;
     
     str_input1 = novaString();
+    str_input2 = novaString();
+
+    imprimeString(str_input1);
+    imprimeString(str_input2);
     return 0;
 }
