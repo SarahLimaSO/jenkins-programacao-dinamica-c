@@ -6,7 +6,7 @@
 char *novaString(){
     char temp_buffer[100];
 
-    printf("Digite a string: ");
+    //printf("Digite a string: ");
     fgets(temp_buffer, sizeof(temp_buffer), stdin);
 
     // Remove o '\n' do fgets
