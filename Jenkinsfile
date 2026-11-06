@@ -17,5 +17,10 @@ pipeline{
                 sh 'cmake --build build'
             }
         }
+        stage('Run') {
+            steps {
+                sh './build/prog-dinamica'
+            }
+        }
     }
 }
