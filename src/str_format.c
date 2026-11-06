@@ -16,7 +16,7 @@ char *novaString(){
 
     if (str == NULL) {
         printf("Erro de alocacao!\n");
-        return 1;
+        exit(1);
     }
 
     strcpy(str, temp_buffer);
