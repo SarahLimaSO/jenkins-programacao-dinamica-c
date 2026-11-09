@@ -4,3 +4,4 @@ int max(int valor1, int valor2);
 int **monta_matriz_prog_dinamica(char *str1, char *str2);
 void imprime_matriz(int **mat, int nLinhas, int nColunas);
 int tamanho_maior_subsequencia_comum(int **mat, int nLinhas, int nColunas);
+char *maior_subsequencia_comum(char *str1, char *str2);

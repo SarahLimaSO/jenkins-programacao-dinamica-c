@@ -57,6 +57,38 @@ int **monta_matriz_prog_dinamica(char *str1, char *str2){
     return mat;
 }
 
-int tamanho_maior_subsequencia_comum(int **mat, int nLinhas, int nColunas){
-    return mat[nLinhas][nColunas];
+int tamanho_maior_subsequencia_comum(int **mat, int coord_linha, int coord_coluna){
+    return mat[coord_linha][coord_coluna];
+}
+
+char *maior_subsequencia_comum(char *str1, char *str2){
+    int **mat = monta_matriz_prog_dinamica(str1, str2);
+    int ehIgual = 0;
+
+    int tamStr1 = tamanhoString(str1);
+    int tamStr2 =  tamanhoString(str2);
+    int tamMaiorSubcomum = tamanho_maior_subsequencia_comum(mat, tamStr1, tamStr2);
+    char *maiorSubComum = malloc(sizeof(char) * tamMaiorSubcomum);
+
+    int i = tamStr1;
+    int j = tamStr2;
+    int x = tamMaiorSubcomum - 1;
+
+    while(mat[i][j] && x > -1){
+        ehIgual = verifica_letras_iguais(str2[i-1], str1[j-1]);
+        if(ehIgual){
+            maiorSubComum[x] = str2[i-1];
+            x--; 
+
+            //Parte para a diagonal superior esquerda
+            i--; 
+            j--;
+        }
+        else{
+            //Parte para a posição de maior valor entre cima e lado esquerdo
+            if(mat[i-1][j] > mat[i][j-1]) i--;
+            else j--; 
+        }
+    }
+    return maiorSubComum;
 }

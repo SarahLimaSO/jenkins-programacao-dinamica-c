@@ -19,6 +19,7 @@ int main(){
     int tam_matriz = tamanho_maior_subsequencia_comum(mat, tamStr1, tamStr2);
     printf("tamanho maior msc: %d\n", tam_matriz);
 
-    char * msc;
+    char * msc = maior_subsequencia_comum(str_input1, str_input2);
+    printf("Maior Subsequencia Comum: %s\n", msc);
     return 0;
 }
