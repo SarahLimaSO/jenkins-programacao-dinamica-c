@@ -23,3 +23,11 @@ add_test(
         ${CMAKE_SOURCE_DIR}/tests/inputs/teste1_in.txt
         ${CMAKE_SOURCE_DIR}/tests/outputs/teste1_out.txt
 )
+add_test(
+    NAME teste_2
+    COMMAND bash
+        ${CMAKE_SOURCE_DIR}/tests/executa_testes.sh
+        $<TARGET_FILE:prog-dinamica>
+        ${CMAKE_SOURCE_DIR}/tests/inputs/teste2_in.txt
+        ${CMAKE_SOURCE_DIR}/tests/outputs/teste2_out.txt
+)
