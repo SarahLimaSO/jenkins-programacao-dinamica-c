@@ -59,8 +59,8 @@ int **monta_matriz_prog_dinamica(char *str1, char *str2){
 
 int tamanho_maior_subsequencia_comum(char *str1, char *str2){
     int **mat = monta_matriz_prog_dinamica(str1, str2);
-    int coord_linha = tamanhoString(str1) + 1;
-    int coord_coluna = tamanhoString(str2) + 1;
+    int coord_linha = tamanhoString(str1);
+    int coord_coluna = tamanhoString(str2);
     int tam = mat[coord_linha][coord_coluna];
 
     return tam;
