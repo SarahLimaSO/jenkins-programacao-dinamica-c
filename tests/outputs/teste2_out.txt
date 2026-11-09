@@ -1,0 +1,3 @@
+Digite a primeira string: 
+Digite a segunda string: 
+Maior Subsequencia Comum: _2026_BANCO_00

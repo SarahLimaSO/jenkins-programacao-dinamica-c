@@ -1,4 +1,3 @@
-Digite a string: 
-ABBA
-Digite a string: 
-AMY
+Digite a primeira string: 
+Digite a segunda string: 
+Maior Subsequencia Comum: VINT
