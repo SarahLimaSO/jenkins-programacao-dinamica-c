@@ -1,3 +1,4 @@
 Digite a primeira string: 
 Digite a segunda string: 
-Maior Subsequencia Comum: _2026_BANCO_00
+Tamanho Maior Subsequencia Comum: 61
+Maior Subsequencia Comum: O_2026_BANCO_00_CLIENTE_78945_PIX_APROVADO_1H_VALOR_500_REAIS

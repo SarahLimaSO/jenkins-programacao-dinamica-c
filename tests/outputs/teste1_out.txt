@@ -1,3 +1,4 @@
 Digite a primeira string: 
 Digite a segunda string: 
+Tamanho Maior Subsquencia Comum: 4
 Maior Subsequencia Comum: VINT

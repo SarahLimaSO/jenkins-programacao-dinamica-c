@@ -1,0 +1,4 @@
+Digite a primeira string: 
+Digite a segunda string: 
+Tamanho Maior Subsequencia Comum: 6
+Maior Subsequencia Comum: ADEMOQ
