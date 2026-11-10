@@ -169,7 +169,7 @@ O desenvolvimento deste projeto busca consolidar conhecimentos em duas áreas pr
 
 ## Status do projeto
 
-Em desenvolvimento.
+- **Versão atual:** algoritmo da Maior Subsequência Comum (LCS) implementado e funcional.
 
 ## Autor
 
