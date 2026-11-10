@@ -4,11 +4,11 @@
 #include "maior_subsequencia_comum.h"
 
 int **cria_matriz_inicial(int nLinhas, int nColunas){
-    int **mat;
+    int **mat = calloc(nLinhas, sizeof(int*));
 
-    mat = calloc(nLinhas, sizeof(int*));
+    if(mat == NULL) exit(1);
     
-    for(int i = 0; i < nColunas; i++){
+    for(int i = 0; i < nLinhas; i++){
         mat[i] = calloc(nColunas, sizeof(int));
     }
     return mat;
@@ -35,16 +35,15 @@ void imprime_matriz(int **mat, int nLinhas, int nColunas){
 }
 
 int **monta_matriz_prog_dinamica(char *str1, char *str2){
-    int nLinhas = tamanhoString(str2) + 1;
-    int nColunas = tamanhoString(str1) + 1;
+    int nLinhas = tamanhoString(str1) + 1;
+    int nColunas = tamanhoString(str2) + 1;
     int ehIgual, valor_posicao_diagonal, valor = 0;
 
     int **mat = cria_matriz_inicial(nLinhas, nColunas);
 
     for(int i = 1; i < nLinhas; i++){
         for(int j = 1; j < nColunas; j++){
-
-            ehIgual = verifica_letras_iguais(str2[i-1], str1[j-1]);
+            ehIgual = verifica_letras_iguais(str1[i-1], str2[j-1]);
             valor_posicao_diagonal = mat[i-1][j-1];
             
             if(ehIgual) valor = valor_posicao_diagonal + 1;
@@ -75,9 +74,9 @@ char *maior_subsequencia_comum(char *str1, char *str2){
     int x = tamMaiorSubcomum - 1;
 
     while(mat[i][j] && x > -1){
-        ehIgual = verifica_letras_iguais(str2[i-1], str1[j-1]);
+        ehIgual = verifica_letras_iguais(str1[i-1], str2[j-1]);
         if(ehIgual){
-            maiorSubComum[x] = str2[i-1];
+            maiorSubComum[x] = str1[i-1];
             x--; 
 
             //Parte para a diagonal superior esquerda
