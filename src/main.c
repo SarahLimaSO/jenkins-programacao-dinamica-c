@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "maior_subsequencia_comum.h"
 #include "str_format.h"
 
@@ -19,6 +20,9 @@ int main(){
     
     char * msc = maior_subsequencia_comum(str_input1, str_input2);
     printf("Maior Subsequencia Comum: %s\n", msc);
+
+    free(mat);
+    free(msc);
 
     return 0;
 }
