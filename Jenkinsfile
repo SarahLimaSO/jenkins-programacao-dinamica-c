@@ -8,7 +8,7 @@ pipeline{
         }
         stage('Análise estática'){
             steps {
-                sh 'cppcheck --enable=warning src/'
+                sh 'cppcheck --enable=all --inconclusive --std=c11 -I include src/ include/'
             }
         }
         stage('Build'){
