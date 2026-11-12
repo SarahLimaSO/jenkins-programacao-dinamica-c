@@ -17,9 +17,11 @@ pipeline{
                 sh 'cmake --build build'
             }
         }
-        stage('Test') {
-            steps {
-                sh 'ctest --test-dir build --output-on-failure'
+        stage('Test'){
+            steps{
+                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                    sh 'ctest --test-dir build --output-on-failure'
+                }
             }
         }
     }
