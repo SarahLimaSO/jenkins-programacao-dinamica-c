@@ -1,9 +1,9 @@
 pipeline{
     agent any
 
-    // triggers{
-    //     cron("* * * * *")
-    // }
+    triggers{
+        cron("0 20 * * 1-5")
+    }
 
     stages{
         stage('Checkout'){
