@@ -89,5 +89,6 @@ char *maior_subsequencia_comum(char *str1, char *str2){
             else j--; 
         }
     }
+    free(mat);
     return maiorSubComum;
 }
