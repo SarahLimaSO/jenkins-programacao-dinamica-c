@@ -70,7 +70,7 @@ char *maior_subsequencia_comum(char *str1, char *str2){
     char *maiorSubComum = malloc(sizeof(char) * tamMaiorSubcomum);
 
     int i = tamStr1;
-    int j = tamStr2;
+    int j = tamStr2
     int x = tamMaiorSubcomum - 1;
 
     while(mat[i][j] && x > -1){
