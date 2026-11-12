@@ -50,7 +50,7 @@ int **monta_matriz_prog_dinamica(char *str1, char *str2){
             else{
                 valor = max(mat[i-1][j], mat[i][j-1]);
             }
-            mat[i][j] = valor + 1;
+            mat[i][j] = valor;
         }
     }    
     return mat;
