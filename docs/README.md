@@ -29,7 +29,7 @@ Uma subsequência é formada pela remoção de zero ou mais caracteres de uma st
 
 **Abordagem utilizada:**
 
-A solução utiliza programação dinâmica, construindo uma matriz que armazena os resultados dos subproblemas. Após o preenchimento da matriz, é realizado um procedimento de reconstrução para identificar os caracteres que compõem uma das maiores subsequências comuns. O resultado mostra uma das possíveis saídas para a maior subsequência comum entre as strings de entrada.
+A solução utiliza programação dinâmica, construindo uma matriz que armazena os resultados dos subproblemas. Após o preenchimento da matriz, é realizado um procedimento de reconstrução para identificar os caracteres que compõem uma das maiores subsequências comuns.
 
 **Complexidade:**
 
@@ -43,10 +43,13 @@ Em que `m` e `n` representam os comprimentos das duas strings de entrada.
 | Tecnologia | Finalidade |
 |---|---|
 | **C** | Linguagem utilizada na implementação dos algoritmos. |
-| **GCC** | Compilador do código-fonte. |
+| **GCC** | Compilação e instrumentação do código para análise de cobertura. |
 | **CMake** | Configuração e gerenciamento do processo de build. |
+| **Make** | Execução das instruções de compilação geradas pelo CMake. |
 | **CTest** | Execução e gerenciamento dos testes automatizados. |
 | **Cppcheck** | Análise estática do código-fonte. |
+| **gcov** | Coleta de dados de cobertura durante a execução do programa instrumentado. |
+| **gcovr** | Processamento dos dados de cobertura e geração de relatórios. |
 | **Git** | Controle de versão do projeto. |
 | **GitHub** | Hospedagem do repositório e gerenciamento do código-fonte. |
 | **Jenkins** | Automação do processo de integração contínua (CI). |
@@ -63,6 +66,7 @@ Entre as práticas adotadas estão:
 - **Integração contínua:** utilização do Jenkins para automatizar as etapas de obtenção do código-fonte, análise estática, compilação e execução de testes.
 - **Testes automatizados:** utilização do CTest para verificar o comportamento das implementações.
 - **Análise estática:** utilização do Cppcheck para auxiliar na identificação de possíveis problemas no código-fonte.
+- **Cobertura de código:** utilização do gcov e gcovr para medir a execução de linhas, funções e ramificações durante os testes automatizados, disponibilizando os resultados no Jenkins.
 
 ## Como compilar e executar
 
@@ -81,20 +85,28 @@ Para executar as verificações de qualidade, também são utilizadas:
 - CTest
 - Cppcheck
 
+Para gerar relatórios de cobertura de código:
+
+- gcov
+- gcovr
+
 Docker e Jenkins são utilizados nos processos automatizados e na padronização do ambiente.
 
 ### Execução automática (Jenkins)
 
 O Jenkins é utilizado para automatizar o processo de integração contínua (CI), por meio de um pipeline definido no arquivo `Jenkinsfile`.
 
-O pipeline está organizado em quatro etapas:
+O pipeline está organizado em cinco etapas:
 
 1. **Checkout:** obtém o código-fonte do repositório por meio do comando `checkout scm`.
 2. **Análise estática:** executa o Cppcheck para identificar possíveis problemas no código-fonte localizado no diretório `src/`.
-3. **Build:** configura o projeto com CMake e realiza a compilação dos arquivos.
-4. **Test:** executa os testes automatizados configurados no CTest, apresentando os resultados e possíveis falhas.
+3. **Build:** configura o projeto com CMake, habilitando a instrumentação de cobertura por meio da opção `ENABLE_COVERAGE`, e realiza a compilação dos arquivos.
+4. **Test:** remove os dados de cobertura de execuções anteriores e executa os testes automatizados configurados no CTest.
+5. **Code Coverage:** utiliza o gcovr para processar os dados gerados durante os testes, apresentar os percentuais de cobertura no console e gerar um relatório HTML detalhado, armazenado como artefato do build no Jenkins.
 
-A execução do pipeline permite verificar automaticamente a qualidade e a integridade do código durante o desenvolvimento.
+A geração do relatório de cobertura ocorre somente quando os testes são executados com sucesso. Dessa forma, o percentual apresentado corresponde aos dados coletados na execução atual do conjunto de testes.
+
+A execução do pipeline permite verificar automaticamente a qualidade e a integridade do código durante o desenvolvimento, além de fornecer métricas para avaliar a abrangência dos testes automatizados.
 
 ### Execução manual
 
@@ -149,6 +161,20 @@ Para realizar a análise estática do código-fonte com Cppcheck, execute na rai
 cppcheck --enable=warning src/
 ```
 
+### Cobertura de código
+
+A cobertura de código é gerada automaticamente durante a execução do pipeline Jenkins.
+
+Para isso, o projeto utiliza a instrumentação disponibilizada pelo GCC, habilitada no CMake por meio da opção `ENABLE_COVERAGE`. Durante a execução dos testes, são coletados dados que permitem identificar quais partes do código foram exercitadas.
+
+Após a execução bem-sucedida dos testes, o gcovr processa esses dados e apresenta três métricas:
+
+- **Cobertura de linhas:** percentual de linhas consideradas na análise que foram executadas.
+- **Cobertura de funções:** percentual de funções consideradas na análise que foram chamadas.
+- **Cobertura de ramificações (branches):** percentual de ramificações do fluxo de controle que foram percorridas.
+
+Além do resumo apresentado no console do Jenkins, é gerado um relatório HTML detalhado, armazenado como artefato da execução. Esse relatório permite consultar a cobertura por arquivo e identificar trechos que ainda não foram exercitados pelos testes.
+
 ## Objetivos de aprendizagem
 
 O desenvolvimento deste projeto busca consolidar conhecimentos em duas áreas principais:
@@ -166,10 +192,12 @@ O desenvolvimento deste projeto busca consolidar conhecimentos em duas áreas pr
 - Utilização de Docker para padronização de ambientes.
 - Configuração de pipelines de integração contínua com Jenkins.
 - Integração de ferramentas de análise estática e testes automatizados.
+- Avaliação da cobertura de código para acompanhar a abrangência dos testes.
 
 ## Status do projeto
 
 - **Versão atual:** algoritmo da Maior Subsequência Comum (LCS) implementado e funcional.
+- **Infraestrutura:** pipeline Jenkins configurado com análise estática, compilação, testes automatizados e geração de relatórios de cobertura de código.
 
 ## Autor
 
