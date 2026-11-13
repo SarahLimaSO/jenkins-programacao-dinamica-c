@@ -13,6 +13,13 @@ add_executable(prog-dinamica
 
 target_include_directories(prog-dinamica PRIVATE include)
 
+option(ENABLE_COVERAGE "Habilita cobertura de codigo" OFF)
+
+if(ENABLE_COVERAGE)
+    target_compile_options(prog-dinamica PRIVATE --coverage)
+    target_link_options(prog-dinamica PRIVATE --coverage)
+endif()
+
 enable_testing()
 
 add_test(
